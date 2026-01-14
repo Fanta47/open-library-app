@@ -1,0 +1,107 @@
+.book-details-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.back-btn {
+  padding: 0.75rem 1.5rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  transition: background 0.3s;
+}
+
+.back-btn:hover {
+  background: #764ba2;
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.1rem;
+}
+
+.error {
+  background: #fee;
+  color: #c33;
+  border-radius: 4px;
+}
+
+.book-details {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 3rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book-image {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.book-image img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.book-content h1 {
+  color: #333;
+  margin-top: 0;
+  line-height: 1.4;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 1.1rem;
+  font-style: italic;
+  margin: 0.5rem 0;
+}
+
+.metadata {
+  background: #f5f5f5;
+  padding: 1rem;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+.metadata p {
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.description, .authors {
+  margin: 1.5rem 0;
+}
+
+.description h3, .authors h3 {
+  color: #667eea;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 0.5rem;
+}
+
+.description p {
+  line-height: 1.6;
+  color: #555;
+}
+
+.authors ul {
+  list-style-position: inside;
+  color: #555;
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .book-details {
+    grid-template-columns: 1fr;
+  }
+}

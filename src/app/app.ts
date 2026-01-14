@@ -1,12 +1,17 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { HeadBar } from './components/head-bar/head-bar';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
+  standalone: true,
+  imports: [RouterOutlet, HeadBar],
+  template: `
+    <app-head-bar></app-head-bar>
+    <router-outlet></router-outlet>
+  `,
   styleUrl: './app.css'
 })
-export class App {
-  protected readonly title = signal('open-library-app');
+export class AppComponent {
+  title = 'open-library-app';
 }

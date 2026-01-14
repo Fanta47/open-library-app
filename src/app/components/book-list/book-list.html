@@ -1,0 +1,49 @@
+<div class="book-list-container">
+  <!-- Search Bar -->
+  <app-search-bar 
+    (searchByTitle)="onSearchByTitle($event)"
+    (searchByYear)="onSearchByYear($event)">
+  </app-search-bar>
+
+  <!-- Loading -->
+  <div *ngIf="isLoading" class="loading">
+    ⏳ Chargement en cours...
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="error">
+    ⚠️ {{ errorMessage }}
+  </div>
+
+  <!-- Books Grid -->
+  <div class="books-grid" *ngIf="!isLoading && filteredBooks.length > 0">
+    <div *ngFor="let book of filteredBooks" class="book-card">
+      <div class="book-image">
+        <img 
+          [src]="getCoverUrl(book.cover_id)" 
+          [alt]="book.title"
+          (error)="$event.target.src='https://via.placeholder.com/150?text=No+Cover'"
+        />
+      </div>
+      <div class="book-info">
+        <h3>{{ book.title }}</h3>
+        <p class="year" *ngIf="book.first_publish_year">
+          📅 {{ book.first_publish_year }}
+        </p>
+        <p class="editions" *ngIf="book.edition_count">
+          📚 {{ book.edition_count }} éditions
+        </p>
+        <router-link 
+          [routerLink]="['/details', book.key.split('/')[2]]" 
+          class="view-btn">
+          Voir détails →
+        </router-link>
+      </div>
+    </div>
+  </div>
+
+  <!-- Empty State -->
+  <div *ngIf="!isLoading && filteredBooks.length === 0" class="empty">
+    😕 Aucun livre trouvé. Essayez une autre recherche.
+  </div>
+</div>
